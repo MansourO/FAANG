@@ -22,22 +22,42 @@ namespace FAANG.Sandbox
 
             //Daily Array Drills
             //One Dimensional Array
-            int[] a = { 1, 2, 3, 4, 5, 6, 7, 8 };
+            int[] a = { 11, 2, 3, 10, 5, 6, 7, 8 };
             int[,] b = { { 1,  2,  3,  4  },
                          { 5,  6,  7,  8  },
                          { 9,  10, 11, 12}};
 
+            string c = "testmyrideacces";
 
-            for(int i = 0; i <= b.GetLength(0)-1; i++)
+
+            //Building a sorting algorithm will continue tomorrow
+            int idx = 0;
+            int[] sortedArray = new int[a.Length];
+            while (idx < a.Length - 1)
             {
-                for(int j =0; j <= b.GetLength(1)-1; j++)
+                var curr = a[idx];
+                var next = a[idx + 1];
+
+                if (curr < next && Array.IndexOf(sortedArray, curr) == -1)
                 {
-                    if(b[i,j] % 2 != 0)
-                      Console.WriteLine(b[i, j]);
+                    sortedArray[idx] = curr;
+                } 
+                else if(curr > next && Array.IndexOf(sortedArray, curr) == -1)
+                {
+                    for (int i = idx; i < a.Length; i++)
+                    {
+                        if (a[i] < curr && Array.IndexOf(sortedArray, a[i]) == -1)
+                            sortedArray[idx] = a[i];
+                    }
                 }
+
+                idx++;
             }
 
-            
+            foreach(var v in sortedArray)
+            {
+                Console.WriteLine($"{v}");
+            }
         }
     }
 }

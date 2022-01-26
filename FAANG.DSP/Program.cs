@@ -40,7 +40,20 @@ namespace FAANG.DSP
             //{
             //    Console.WriteLine(v);
             //}
-            Console.WriteLine(ArraysAndStrings.smallestSubstring("aabbccdd", "abc"));
+            //Console.WriteLine(ArraysAndStrings.smallestSubstring("aabbccdd", "abc"));
+
+            SinglyLinkedList list = new SinglyLinkedList();
+            list.insert(1);
+            list.insert(2);
+
+            Console.WriteLine(list.toString());
+
+            list.delete(1);
+
+            Console.WriteLine(list.toString());
+
+            Console.WriteLine(list.size());
+
 
             //PrintArray(arr);
         }
